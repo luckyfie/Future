@@ -16,6 +16,8 @@ module.exports = {
             message.guild(memberTarget, {
                 userDeleter
             })
+        } else {
+            message.reply(memberTarget, 'is niet gevonden!');
         }
     }
 }
