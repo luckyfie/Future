@@ -7,7 +7,7 @@ module.exports = {
         const target = message.mentions.users.first();
 
         let memberTarget = message.guild.members.cache.get(target.id)
-        const kicker = memberTarget.kick()
+        const userDeleter = memberTarget.kick()
 
         if (!args[1]) {
 
