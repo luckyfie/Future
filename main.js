@@ -10,7 +10,13 @@ client.events = new Discord.Collection();
 })
 
 
+
+
+
+
+
 client.login(process.env.token);
 
 // process.env.token
 // dO U SSE,
+// ODYxMTc1NDAyNTcwNTc5OTY5.YOF-Fw.hlvZKY59e5Bp6OdrMb_pQrRncFY
