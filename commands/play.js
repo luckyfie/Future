@@ -78,9 +78,9 @@ module.exports = {
         }
 
         else if (cmd === 'skip') skip_song(message, server_queue);
-        else if ('cmd' === 'skip')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
+        else if (cmd === 'skip')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
         else if (cmd === 'stop') stop_song(message, server_queue);
-        else if ('cmd' === 'stop')message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'stop')message.channel.send('De bot heeft de channel verlaten.');
     }
 
 }
