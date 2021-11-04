@@ -4,8 +4,9 @@ module.exports = {
     permissions: [],
     description: 'creates a suggestion!',
     execute(message, args, cmd, client, discord) {
-        const channel = message.guild.channels.cache.find(c => c.name === 'suggestie');
-        if (!channel) return message.channel.send('suggestie channel does not exist!');
+        let sKanaal = '✅temmingen✅'
+        const channel = message.guild.channels.cache.find(c => c.name === sKanaal);
+        if (!channel) return message.channel.send(`${sKanaal} bestaat niet!`);
 
         let messageArgs = args.join(' ');
         const embed = new discord.MessageEmbed()
@@ -13,11 +14,17 @@ module.exports = {
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
             .setDescription(messageArgs);
 
+
+        const geluktEmbed = new discord.MessageEmbed()
+            .setColor('ff0000')
+            .setDescription('Je suggestie is succesvol verzonden!')
+        
+        
+        
         channel.send(embed).then((msg) => {
             msg.react('👍');
             msg.react('👎');
             message.delete();
-            message.channel.send('Jouw suggestie is verzonden!');
         }).catch((err) => {
             throw err;
         });
