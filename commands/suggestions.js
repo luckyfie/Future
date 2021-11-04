@@ -4,7 +4,7 @@ module.exports = {
     permissions: [],
     description: 'creates a suggestion!',
     execute(message, args, cmd, client, discord) {
-        let sKanaal = '✅temmingen✅'
+        let sKanaal = '✅stemmingen✅'
         const channel = message.guild.channels.cache.find(c => c.name === sKanaal);
         if (!channel) return message.channel.send(`${sKanaal} bestaat niet!`);
 
