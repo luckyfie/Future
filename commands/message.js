@@ -3,7 +3,7 @@ module.exports = {
     description: 'Zegt dat er server problemen zijn.',
     aliases: ['probleem', 'hostingdown'],
     permissions: ['MANAGE_MESSAGES'],
-    execute(message, args, cmd, client, Discord) {
+    execute(message, args, cmd, client, discord) {
 
 
         let bericht = 'F9 - Easy Admin \n, - vMenu'
@@ -14,6 +14,5 @@ module.exports = {
         .setDescription(bericht);
 
         message.channel.send(embed)
-        message.delete()
     }
 }
