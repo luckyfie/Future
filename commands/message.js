@@ -6,7 +6,7 @@ module.exports = {
     execute(message, args, cmd, client, Discord) {
 
 
-        const bericht = 'F9 - Easy Admin \n, - vMenu'
+        let bericht = 'F9 - Easy Admin \n, - vMenu'
 
         const embed = new discord.MessageEmbed()
         .setColor('9700ff')
