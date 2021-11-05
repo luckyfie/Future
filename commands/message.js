@@ -8,11 +8,11 @@ module.exports = {
 
         let bericht = 'F9 - Easy Admin \n, - vMenu'
 
-        const embed = new discord.MessageEmbed()
-        .setColor('9700ff')
-        .setAuthor('Key Binds AZERTY | Klein Amerika')
-        .setDescription(bericht);
+        // const embed = new discord.MessageEmbed()
+        // .setColor('9700ff')
+        // .setAuthor('Key Binds AZERTY | Klein Amerika')
+        // .setDescription(bericht);
 
-        message.channel.send(embed)
+        message.channel.send(bericht)
     }
 }
