@@ -4,7 +4,7 @@ module.exports = {
     name: 'add',
     description: 'adds a user from a channel',
     aliases: ['adduser', 'add-user'],
-    permissions: ['MOVE_MEMBERS'], //, 'MANAGE_CHANNELS' //add this
+    permissions: ['MOVE_MEMBERS', 'MANAGE_CHANNELS'],
     execute(message, args, client, Discord) {
         const target = message.mentions.users.first();
 
