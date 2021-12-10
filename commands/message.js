@@ -1,19 +1,16 @@
 module.exports = {
-    name: 'serverdown',
+    name: 'say',
     description: 'Zegt dat er server problemen zijn.',
-    aliases: ['probleem', 'hostingdown'],
+    aliases: ['zeg'],
     permissions: ['MANAGE_MESSAGES'],
     execute(message, args, cmd, client, discord) {
 
+        let messageArgs = args.join(' ');
 
-        let bericht = 'F9 - Easy Admin \n, (komma) - vMenu'
-
-        const embed = new discord.MessageEmbed()
-        .setColor('9700ff')
-        .setAuthor('Key Binds AZERTY | Klein Amerika')
-        .setDescription(bericht);
-
-        message.channel.send(embed)
-        message.channel.send(bericht)
+        message.channel.send(messageArgs).then((msg) => {
+            message.delete();
+        }).catch((err) => {
+            throw err;
+        });
     }
 }
