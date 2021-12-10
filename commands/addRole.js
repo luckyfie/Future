@@ -1,7 +1,7 @@
 const { Channel } = require("discord.js");
 
 module.exports = {
-    name: 'add',
+    name: 'addRole',
     description: 'adds a user from a channel',
     aliases: ['Y', 'N'],
     permissions: ['ADMINSTRATOR'],
