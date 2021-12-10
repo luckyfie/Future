@@ -20,6 +20,7 @@ module.exports = {
         
         channel.send(embed).then((msg) => {
             message.delete();
+            message.channel.send(geluktEmbed)
         }).catch((err) => {
             throw err;
         });
