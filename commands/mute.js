@@ -9,7 +9,7 @@ module.exports = {
         if (target) {
 
             let mainRole = message.guild.roles.cache.find(role => role.name === 'DONT_IN_USE');
-            let muteRole = message.guild.roles.cache.find(role => role.name === 'muted');
+            let muteRole = message.guild.roles.cache.find(role => role.name === '🤫Muted');
 
             let memberTarget = message.guild.members.cache.get(target.id);
 
