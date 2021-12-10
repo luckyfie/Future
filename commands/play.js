@@ -6,7 +6,7 @@ const queue = new Map();
 
 module.exports = {
     name: 'play',
-    aliases: ['add', 'skip', 'stop'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
+    aliases: ['add', 'skip', 'stop', 'leave'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
     permissions: ['CONNECT'],
     cooldown: 0,
     description: 'Advanced music bot',
@@ -81,6 +81,8 @@ module.exports = {
         else if (cmd === 'skip')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
         else if (cmd === 'stop') stop_song(message, server_queue);
         else if (cmd === 'stop')message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'leave') stop_song(message, server_queue);
+        else if (cmd === 'leave')message.channel.send('De bot heeft de channel verlaten.');
     }
 
 }
