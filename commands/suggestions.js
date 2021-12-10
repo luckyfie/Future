@@ -18,9 +18,9 @@ module.exports = {
         const geluktEmbed = new discord.MessageEmbed()
             .setColor('ff0000')
             .setDescription('Je suggestie is succesvol verzonden!')
-        
-        
-        
+
+
+
         channel.send(embed).then((msg) => {
             msg.react('👍');
             msg.react('👎');
