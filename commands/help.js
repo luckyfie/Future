@@ -18,7 +18,7 @@ module.exports = {
 
             )
             .setImage('https://cdn.discordapp.com/icons/850469665988804668/d83db43b6b8e811cf0996f450a816d0d.jpg?size=512')
-            .setFooter('Ik hoop dat ik je heb kunnen helpen! ^.^ | Nederbelgen RP V2 - Future')
+            .setFooter('Ik hoop dat ik je heb kunnen helpen! ^.^ | ZevenDijk Roleplay')
 
 
 
