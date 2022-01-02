@@ -4,7 +4,6 @@ const ytSearch = require('yt-search');
 //Global queue for your bot. Every server will have a key and value pair in this map. { guild.id, queue_constructor{} }
 const queue = new Map();
 
-
 module.exports = {
     name: 'play',
     aliases: ['add', 'skip', 'stop', 'leave', 'next'], //We are using aliases to run the skip and stop command follow this tutorial if lost: https://www.youtube.com/watch?v=QBUJ3cdofqc
@@ -12,17 +11,6 @@ module.exports = {
     cooldown: 0,
     description: 'Advanced music bot',
     async execute(message, args, cmd, client, Discord) {
-
-
-        const embedLiedjeWordtAfgespeeld = new discord.MessageEmbed()
-            .setColor('19ff00')
-            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`Het volgende liedje wordt afgespeelt! 👍`);
-
-        const embedBotVerlaatKanaal = new discord.MessageEmbed()
-            .setColor('00baff')
-            .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`De bot heeft de channel verlaten.`);
 
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
@@ -89,35 +77,17 @@ module.exports = {
             }
         }
 
-
         else if (cmd === 'skip') skip_song(message, server_queue);
-        else if (cmd === 'skip') message.channel.send(embedLiedjeWordtAfgespeeld);
+        else if (cmd === 'skip')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
         else if (cmd === 'stop') stop_song(message, server_queue);
-        else if (cmd === 'stop') message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'stop')message.channel.send('De bot heeft de channel verlaten.');
         else if (cmd === 'leave') stop_song(message, server_queue);
-        else if (cmd === 'leave') message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'leave')message.channel.send('De bot heeft de channel verlaten.');
         else if (cmd === 'next') skip_song(message, server_queue);
-        else if (cmd === 'next') message.channel.send(embedLiedjeWordtAfgespeeld);
+        else if (cmd === 'next')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
     }
 
 }
-
-const embedPlay = new discord.MessageEmbed()
-    .setColor('73ff00')
-    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription(`🎶 Speelt nu **${song.title}** af!`);
-
-
-
-const embedInKanaalZijn = new discord.MessageEmbed()
-    .setColor('ff0000')
-    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription('je moet in een spraak channel zitten voor deze command uit te kunnen voeren!');
-
-const embedGeenLiederenMeer = new discord.MessageEmbed()
-    .setColor('ff0000')
-    .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-    .setDescription(`Er waren geen liedjes meer in de queue 😔`);
 
 const video_player = async (guild, song) => {
     const song_queue = queue.get(guild.id);
@@ -134,19 +104,19 @@ const video_player = async (guild, song) => {
             song_queue.songs.shift();
             video_player(guild, song_queue.songs[0]);
         });
-    await song_queue.text_channel.send(embedPlay)
+    await song_queue.text_channel.send(`🎶 Speelt nu **${song.title}** af!`)
 }
 
 const skip_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send(embedInKanaalZijn);
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
     if (!server_queue) {
-        return message.channel.send(embedGeenLiederenMeer);
+        return message.channel.send(`Er waren geen liedjes meer in de queue 😔`);
     }
     server_queue.connection.dispatcher.end();
 }
 
 const stop_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send(embedInKanaalZijn);
+    if (!message.member.voice.channel) return message.channel.send('je moet in een spraak channel zitten voor deze command uit te kunnen voeren!');
     server_queue.songs = [];
     server_queue.connection.dispatcher.end();
 }
