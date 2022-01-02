@@ -4,7 +4,7 @@ module.exports = {
     permissions: [],
     description: 'creates a bug!',
     execute(message, args, cmd, client, discord) {
-        let bKanaal = '❗geraporteerde-bugs'
+        let bKanaal = '『⛔』bug-report'
         const channel = message.guild.channels.cache.find(c => c.name === bKanaal);
         if (!channel) return message.channel.send(`**${bKanaal}** is niet gevonden! Je kunt dit melden bij een staff-lid.`);
 
