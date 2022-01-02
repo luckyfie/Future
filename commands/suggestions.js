@@ -1,6 +1,6 @@
 module.exports = {
     name: 'suggestions',
-    aliases: ['suggest', 'suggestion', 'suggestie'],
+    aliases: ['suggest', 'suggestion', 'suggestie', 'idee'],
     permissions: [],
     description: 'creates a suggestion!',
     execute(message, args, cmd, client, discord) {
