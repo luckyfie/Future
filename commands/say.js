@@ -4,8 +4,7 @@ module.exports = {
     aliases: ['zeg'],
     permissions: [],
     execute(message, args, cmd, client, Discord) {
-        const mSend = message
-        let value = mSend.args
+        let value = message.args
         message.reply(value)
     }
 }
