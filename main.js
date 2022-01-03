@@ -11,18 +11,6 @@ client.events = new Discord.Collection();
 })
 
 
-// Server Status
-const { Client } = require('discord.js');
-const { updatePlayerCount } = require("./utils/")
-global.config = require("./config.json")
-
-client.on('ready', () => {
-    console.log(`Discord Bot logged in als ${client.user.tag}`);
-    updatePlayerCount(client, 5)
-})
-
-// Einde server status
-
 client.login(process.env.token);
 
 // process.env.token
