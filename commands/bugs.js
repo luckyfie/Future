@@ -1,6 +1,6 @@
 module.exports = {
     name: 'bugs',
-    aliases: ['bug'],
+    aliases: ['bug', 'bugreport'],
     permissions: [],
     description: 'creates a bug!',
     execute(message, args, cmd, client, discord) {

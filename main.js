@@ -11,7 +11,7 @@ client.events = new Discord.Collection();
 })
 
 
-client.login(process.env.token);
+client.login('OTI3MjExODI0MjU0OTU5NzA3.YdG7TQ.Wmmkt53whzfOomkKPKEEIESKy4Q');
 
 // process.env.token
 // dO U SSE,
