@@ -15,8 +15,7 @@ client.login(process.env.token);
 
 // process.env.token
 // dO U SSE,
-// ODYxMTc1NDAyNTcwNTc5OTY5.YOF-Fw.hlvZKY59e5Bp6OdrMb_pQrRncFY
 
 
 // invite your bot
-// https://discordapp.com/oauth2/authorize?client_id=your_client_id&scope=bot&permissions=1099511627775
+// https://discordapp.com/oauth2/authorize?client_id=your_client_id&scope=bot&permissions=1099511627775s
