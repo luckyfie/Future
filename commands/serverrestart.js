@@ -1,5 +1,5 @@
 module.exports = {
-    name: 'serveruit',
+    name: 'serverrestart',
     aliases: [],
     permissions: ['ADMINISTRATOR'],
     description: 'creates a suggestion!',
@@ -15,8 +15,8 @@ module.exports = {
 
         let messageArgs = args.join(' ');
         const embed = new discord.MessageEmbed()
-            .setColor('ff0000')
-            .setAuthor('Server gesloten!')
+            .setColor('00ffean')
+            .setAuthor('Server re-start!')
             .setDescription(messageArgs)
             .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }));
 
@@ -30,7 +30,7 @@ module.exports = {
         const logEmbed = new discord.MessageEmbed()
             .setColor('ff0000')
             .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
-            .setDescription(`${message.author.tag} heeft een bericht gestuurd naar  ${servStatusChannelTag} met als bericht Server Gesloten:  ${messageArgs}!`)
+            .setDescription(`${message.author.tag} heeft een bericht gestuurd naar  ${servStatusChannelTag} met als bericht Server Re-start:  ${messageArgs}!`)
 
 
 

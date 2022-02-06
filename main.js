@@ -11,11 +11,11 @@ client.events = new Discord.Collection();
 })
 
 
-client.login('OTI3MjExODI0MjU0OTU5NzA3.YdG7TQ.Wmmkt53whzfOomkKPKEEIESKy4Q');
+client.login(process.env.token);
+
+
 
 // process.env.token
-// dO U SSE,
 
 
-// invite your bot
 // https://discordapp.com/oauth2/authorize?client_id=your_client_id&scope=bot&permissions=1099511627775s

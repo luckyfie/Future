@@ -11,9 +11,17 @@ module.exports = {
         let memberTarget = message.guild.members.cache.get(target.id)
         const userDeleter = memberTarget.ban()
 
+        let channelSend = message.channel.send
+
+        const messageUitgevoerdEmbed = new Discord.MessageEmbed()
+            .setColor('0eff00')
+            .setAuthor('Commando Uitgevoerd!')
+            .setDescription(`${memberTarget} Is succesvol verbannen van de server!`)
+            .setFooter(message.author.tag, message.author.displayAvatarURL({ dynamic: true }));
+
         if (!args[1]) {
 
-            message.channel.send("De opgegeven gebruiker is verbannen van de **Server****!**");
+            channelSend(messageUitgevoerdEmbed)
 
             message.guild(memberTarget, {
                 userDeleter
