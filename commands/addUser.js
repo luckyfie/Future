@@ -11,10 +11,10 @@ module.exports = {
         let memberTarget = message.guild.members.cache.get(target.id)
 
         const EmbedMessage = new Discord.MessageEmbed()
-        .setFooter("AS:RP Arizona State Roleplay")
-        .setDescription(`<@${memberTarget.user.id}> can now see this channel!`)
-        .setTitle(`✅ | Command Successful Executed`)
-        .setColor('#0eff00');
+            .setFooter("AS:RP Arizona State Roleplay")
+            .setDescription(`<@${memberTarget.user.id}> can now see this channel!`)
+            .setTitle(`✅ | Command Successful Executed`)
+            .setColor('#0eff00');
 
         if (!args[1]) {
 

@@ -6,13 +6,13 @@ module.exports = {
     permissions: ['MUTE_MEMBERS'],
     description: "This mutes a member",
     execute(message, args, cmd, client, Discord) {
-        
+
 
         const target = message.mentions.users.first();
 
         var reasonArgs = args.slice(2).join(" ");
 
-        
+
 
         // Makes sure everything is fill in and the bot doesn't crashes.
 

@@ -26,7 +26,7 @@ module.exports = {
         const target = message.mentions.users.first();
 
         var reden = args.slice(1).join(" ");
-        
+
         let memberTarget = message.guild.members.cache.get(target.id)
         const userDeleter = memberTarget.ban()
 
