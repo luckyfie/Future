@@ -1,44 +1,62 @@
 module.exports = {
-    name: 'kick-user',
+    name: 'kick',
     description: 'Kicks an user',
-    aliases: ['kick'],
+    aliases: [],
     permissions: ['KICK_MEMBERS'],
     execute(message, args, cmd, client, Discord) {
 
-    var ErrorCode1 = new Discord.MessageEmbed()
-        .setColor('#FF0000')
-        .setTitle('**Error**')
-        .setDescription("Er is geen gebruiker gevonden!");
+        var ErrorCode1 = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('**Error**')
+            .setDescription("No user founded.");
 
-    var ErrorCode2 = new Discord.MessageEmbed()
-        .setColor('#FF0000')
-        .setTitle('**Error**')
-        .setDescription("Er is geen reden gevonden!");
-
-        var kickGebruiker = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[1]));
-
-    var succesvol = new Discord.MessageEmbed()
-        .setColor('#ABC3F3')
-        .setTitle('**Error**')
-        // .setThumbnail(kickGebruiker.user.displayAvatarURL)
-        .setDescription(`**Kicked:** ${kickGebruiker} (${kickGebruiker.id})
-        **Kicked bij:** ${message.author}
-        **Reden: ** ${reden}`);
-
-    var noPerms = new Discord.MessageEmbed()
-        .setColor('#FF0000')
-        .setTitle('**Error**')
-        .setDescription("Je bent niet bevoegd!");
-
-        if (!args[1]) return message.reply(ErrorCode1);
-        if (!args[2]) return message.reply(ErrorCode2);
-        if (args[2]) kickGebruiker.kick(reden);
+        var ErrorCode2 = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('**Error**')
+            .setDescription("No reason founded.");
 
 
-        // if (args[2]) return message.reply(succesvol);
 
-    // Locales
-        
+
+
+
+        if (!args[0]) return message.reply(ErrorCode1);
+        if (!args[1]) return message.reply(ErrorCode2);
+
+
+        var kickGebruiker = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        var reden = args.slice(1).join(" ");
+
+        var succesvol = new Discord.MessageEmbed()
+            .setColor('#0eff00')
+            .setTitle('✅ | Command Successful Executed')
+            .setThumbnail(kickGebruiker.user.displayAvatarURL)
+            .setDescription(`**Kicked:** ${kickGebruiker} (${kickGebruiker.id})
+    **Kicked by:** ${message.author}
+    **Reason: ** ${reden}`);
+
+        const PrivateMessageEmbed = new Discord.MessageEmbed()
+            .setFooter("AS:RP Arizona State Roleplay")
+            .setDescription(`You are **kicked** from **Arizona State Roleplay** for **${reden}**!`)
+            .setTitle(`**Kicked | Arizona State Roleplay**`)
+            .setColor('#FF0000');
+
+        var noPerms = new Discord.MessageEmbed()
+            .setColor('#FF0000')
+            .setTitle('**Error**')
+            .setDescription("You don't have the permissions to kick him!");
+
+
+        if (!args[0]) return message.reply(ErrorCode1);
+        if (!args[1]) return message.reply(ErrorCode2);
+
+        if (args[1]) kickGebruiker.user.send(PrivateMessageEmbed)
+        if (args[1]) kickGebruiker.kick(reden);
+        if (args[1]) return message.reply(succesvol);
+
+
+        // Locales
+
 
 
 

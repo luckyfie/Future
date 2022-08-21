@@ -3,16 +3,21 @@ module.exports = {
     aliases: ['purge', 'verwijder'],
     permissions: ['MANAGE_MESSAGES'],
     description: 'Clear messages!',
-    async execute(message, args, client) {
-        if (!args[0]) return message.reply('Alstublieft, geef een getal op van aantal berichten er verwijderd moeten worden.');
-        if (isNaN(args[0])) return message.reply('Alstublieft, zet het aantal berichten er achter.');
+    async execute(message, args, cmd, client, Discord) {
+        if (!args[0]) return message.reply('No Message Value: NULL');
+        if (isNaN(args[0])) return message.reply('Place numbers.');
 
-        if (args[0] > 100) return message.reply('Het aantal berichten dat u wilt verwijderen moet minder zijn dan: 100');
-        if (args[0] < 1) return message.reply('Je moet minstens 1 bericht verwijderen!');
+        if (args[0] > 100) return message.reply('You need to delete less then: 100 messages.');
+        if (args[0] < 1) return message.reply('You need to delete atleast 1 message.');
+
+        var successEmbed = new Discord.MessageEmbed()
+            .setColor('#30ff00')
+            .setTitle('✅ | Command Successful Executed')
+            .setDescription(`**${args[0]}** Messages Deleted.`);
 
         await message.channel.messages.fetch({ limit: args[0] }).then(messages => {
             message.channel.bulkDelete(messages);
-            message.reply('succesvol messages verwijderd.')
+            message.reply(successEmbed)
         });
     }
 

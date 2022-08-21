@@ -19,7 +19,7 @@ module.exports = {
   description: 'This sends a image to a discord channel',
   async execute(message, args, client) {
     const image_query = args.join(" ");
-    if (!image_query) return message.channel.send('Plaats een image naam!');
+    if (!image_query) return message.channel.send('Place a subject off what image you want!');
 
     const image_results = await google.scrape(image_query, 1);
     message.channel.send(image_results[0].url);

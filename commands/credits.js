@@ -1,10 +1,10 @@
 module.exports = {
     name: 'credit',
     description: 'Toont de bot coder',
-    aliases: ['credits', 'scripter', 'owner', 'maker'],
+    aliases: ['credits', 'scripter'],
     permissions: [],
     execute(message, args, cmd, client, Discord) {
-        const scripter = "Deze bot is gemaakt door **'****@luckyfie#3435****'**"
+        const scripter = "Coded by **'****@luckyfie#3435****'**\nAll credits to CodeLyon for command handler."
         message.channel.send(scripter)
     }
 }

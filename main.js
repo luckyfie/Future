@@ -15,10 +15,39 @@ client.events = new Discord.Collection();
 
 
 
-client.login(process.env.token);
+client.login('MTAxMDE2NjY4MTM4NzEzOTEyMg.GP_FL4.uCfgrAoo52M-FICjOyAbtE53JqTmxIIYchEwqA');
 
 // process.env.token
 // dO U SSE,
-// ODYxMTc1NDAyNTcwNTc5OTY5.YOF-Fw.hlvZKY59e5Bp6OdrMb_pQrRncFY
+// MTAwOTUwMTc5MTU4ODcyODg3Mw.GWsSjo.SAI6T-OOzvwpY-qpxoWsG6w-GMuwz2rpGJG62Q
 
+////////////////////////////////////////////////////////////////////
 
+// const Discord = require('discord.js')
+
+// var prefix = '!';
+
+// const client = new Discord.Client()
+
+// // const client = new Discord.Client({
+// //     allowedMentions: {
+// //         parse: [`users`, `roles`],
+// //         repliedUser: true
+// //     },
+
+// //     intents: [
+// //         "GUILDS",
+// //         "GUILD_MESSAGES",
+// //         "GUILD_PRESENCES",
+// //         "GUILD_MEMBERS",
+// //         "GUILD_MESSAGE_REACTIONS"
+// //     ]
+
+// // });
+
+// client.on("ready", () => {
+//     console.log("Bot is online!")
+
+// });
+
+// client.login("MTAxMDE2NjY4MTM4NzEzOTEyMg.GP_FL4.uCfgrAoo52M-FICjOyAbtE53JqTmxIIYchEwqA")

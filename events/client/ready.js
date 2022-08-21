@@ -1,4 +1,4 @@
 
 module.exports = () => {
-    console.log('Future is Online!');
+    console.log('The bot is Online!');
 }

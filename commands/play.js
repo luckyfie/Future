@@ -15,17 +15,17 @@ module.exports = {
 
         //Checking for the voicechannel and permissions (you can add more permissions if you like).
         const voice_channel = message.member.voice.channel;
-        if (!voice_channel) return message.channel.send('je moet in een spraak channel zijn voor deze command!');
+        if (!voice_channel) return message.channenl.send('You need to be in a voice channel to play music!');
         const permissions = voice_channel.permissionsFor(message.client.user);
-        if (!permissions.has('CONNECT')) return message.channel.send('Ik hebt niet de juiste rol om te verbinden!');
-        if (!permissions.has('SPEAK')) return message.channel.send('Ik heb niet de juiste rol om te praten!');
+        if (!permissions.has('CONNECT')) return message.channel.send('I do not have the right permissions');
+        if (!permissions.has('SPEAK')) return message.channel.send('I do not have the right permissions to speak.');
 
         //This is our server queue. We are getting this server queue from the global queue.
         const server_queue = queue.get(message.guild.id);
 
         //If the user has used the play command
         if (cmd === 'play') {
-            if (!args.length) return message.channel.send('Je moet een link of de naam sturen van de video of muziek die je wilt afspelen!');
+            if (!args.length) return message.channel.send('You need to send a link or name.');
             let song = {};
 
             //If the first argument is a link. Set the song object to have two keys. Title and URl.
@@ -43,7 +43,7 @@ module.exports = {
                 if (video) {
                     song = { title: video.title, url: video.url }
                 } else {
-                    message.channel.send('Error :technologist: zoekt video.');
+                    message.channel.send('Error :technologist: Searching For Video');
                 }
             }
 
@@ -73,18 +73,18 @@ module.exports = {
                 }
             } else {
                 server_queue.songs.push(song);
-                return message.channel.send(`👍 **${song.title}** toegevoegd aan de queue!`);
+                return message.channel.send(`👍 **${song.title}** added to queue!`);
             }
         }
 
         else if (cmd === 'skip') skip_song(message, server_queue);
-        else if (cmd === 'skip')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
+        else if (cmd === 'skip') message.channel.send('Playing The Next Song 👍');
         else if (cmd === 'stop') stop_song(message, server_queue);
-        else if (cmd === 'stop')message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'stop') message.channel.send('The Bot Leaved The Voice Channel');
         else if (cmd === 'leave') stop_song(message, server_queue);
-        else if (cmd === 'leave')message.channel.send('De bot heeft de channel verlaten.');
+        else if (cmd === 'leave') message.channel.send('The Bot Leaved The Voice Channel');
         else if (cmd === 'next') skip_song(message, server_queue);
-        else if (cmd === 'next')message.channel.send('Het volgende liedje wordt afgespeelt! 👍');
+        else if (cmd === 'next') message.channel.send('Playing The Next Song 👍');
     }
 
 }
@@ -104,19 +104,19 @@ const video_player = async (guild, song) => {
             song_queue.songs.shift();
             video_player(guild, song_queue.songs[0]);
         });
-    await song_queue.text_channel.send(`🎶 Speelt nu **${song.title}** af!`)
+    await song_queue.text_channel.send(`🎶 Playing **${song.title}** now`)
 }
 
 const skip_song = (message, server_queue) => {
     if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
     if (!server_queue) {
-        return message.channel.send(`Er waren geen liedjes meer in de queue 😔`);
+        return message.channel.send(`No more songs in the queue 😔`);
     }
     server_queue.connection.dispatcher.end();
 }
 
 const stop_song = (message, server_queue) => {
-    if (!message.member.voice.channel) return message.channel.send('je moet in een spraak channel zitten voor deze command uit te kunnen voeren!');
+    if (!message.member.voice.channel) return message.channel.send('You need to be in a channel to execute this command!');
     server_queue.songs = [];
     server_queue.connection.dispatcher.end();
 }

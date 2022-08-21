@@ -1,7 +1,7 @@
 module.exports = {
     name: 'say',
-    description: 'Zegt dat er server problemen zijn.',
-    aliases: ['zeg'],
+    description: 'Say Something',
+    aliases: [],
     permissions: ['MANAGE_MESSAGES'],
     execute(message, args, cmd, client, discord) {
 

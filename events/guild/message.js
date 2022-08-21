@@ -1,5 +1,5 @@
 module.exports = (Discord, client, message) => {
-  const prefix = ','
+  const prefix = '!'
   if (!message.content.startsWith(prefix) || message.author.bot) return;
 
   const args = message.content.slice(prefix.length).split(/ +/);
@@ -53,7 +53,13 @@ module.exports = (Discord, client, message) => {
       }
     }
     if (invalidPerms.length) {
-      return message.channel.send(`Niet juiste permissie: \`${invalidPerms}\``);
+
+      var noPerms = new Discord.MessageEmbed()
+        .setColor('#FF0000')
+        .setTitle('**Error**')
+        .setDescription(`You don't have the right permissions to execute this command! Permissions missing: \`${invalidPerms}\``);
+
+      return message.channel.send(noPerms);
     }
   }
 
