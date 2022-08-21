@@ -22,7 +22,6 @@
 
 
 
-
 //         message.channel.send(newEmbed)
 //     }
 // }

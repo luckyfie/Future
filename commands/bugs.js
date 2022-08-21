@@ -1,3 +1,4 @@
+
 // module.exports = {
 //     name: 'bugs',
 //     aliases: ['bug'],

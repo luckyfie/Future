@@ -4,7 +4,15 @@ module.exports = {
     aliases: ['credits', 'scripter'],
     permissions: [],
     execute(message, args, cmd, client, Discord) {
-        const scripter = "Coded by **'****@luckyfie#3435****'**\nAll credits to CodeLyon for command handler."
-        message.channel.send(scripter)
+
+        const scripterEmbed = new discord.MessageEmbed()
+        .setColor('ff00eb')
+        .setAuthor(message.author.tag, message.author.displayAvatarURL({ dynamic: true }))
+        .setDescription(`Deze bot is gemaakt door **@luckyfie#3435**`);
+
+        const scripter = "Deze bot is gemaakt door '****@luckyfie#3435****'"
+
+        message.channel.send(scripterEmbed)
+
     }
 }
